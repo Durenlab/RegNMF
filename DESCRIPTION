@@ -1,0 +1,32 @@
+Package: packageTryV3
+Type: Package
+Title: RegNMF
+Version: 0.1.0
+Author: Cham, Duren Zhana
+Maintainer: Cham <fchang@clemson.edu>
+Description: clustering cell
+License: ?
+Depends:
+  R (>= 4.0.0),
+Imports: 
+  Rcpp(>= 1.0.6),
+  stats,
+  utils,
+  Matrix(>= 1.3-2),
+  Rtsne(>= 0.15),
+  lsa(>= 0.73.2),
+  ggplot2(>= 3.3.3),
+  remotes(>= 2.3.0),
+  netZooR(>= 0.9),
+  GenomicRanges(>= 1.42.0),
+  Gviz(>= 1.34.1),
+  GenomicInteractions(>= 1.24.0)
+Remotes::
+  netZoo/netZooR
+LinkingTo:
+  Rcpp,
+  RcppEigen,
+  RcppParallel
+Encoding: UTF-8
+LazyData: true
+
