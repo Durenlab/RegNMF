@@ -1,0 +1,16 @@
+{
+    "args": [
+        "-IC:/Program Files/RStudio/resources/libclang/builtin-headers/5.0.2",
+        "-IC:/Program Files/RStudio/resources/libclang/builtin-headers/libc++/5.0.2",
+        "-IC:/Users/DurenLab/Documents/R/win-library/4.0/Rcpp/include",
+        "-IC:/Users/DurenLab/Documents/R/win-library/4.0/RcppEigen/include",
+        "-IC:/Users/DurenLab/Documents/R/win-library/4.0/RcppParallel/include",
+        "-std=gnu++11",
+        "-IC:/PROGRA~1/R/R-40~1.4/include",
+        "-DNDEBUG",
+        "-fopenmp"
+    ],
+    "pch": "RcppEigen",
+    "is_cpp": true,
+    "hash": "162577181316197989921619798992"
+}
