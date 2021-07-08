@@ -1,8 +1,3 @@
-
-#library(GenomicRanges)
-#library(Gviz)
-#library(GenomicInteractions)
-
 Visualization.default <- function(wholef,peakf,regf,chr,from,to,clusterlist,width=6,height=4){
 
 
@@ -44,7 +39,7 @@ for (i in 1:length(ftmp)) {
   }
   RL[ftmp[i]]=min(start,RL[ftmp[i]])
 }
-#ftmp=RL[ftmp]
+
 
 REcluster=list();
 RETG=list();

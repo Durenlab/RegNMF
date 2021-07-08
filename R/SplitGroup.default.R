@@ -1,15 +1,3 @@
-
-#Reg_symbol_name=c()
-#peak_location=c()
-#for (i in 1:1000000) {
-#  a=paste0("Symbol",i);
-#  Reg_symbol_name[i]=a;
-#  a=paste0("chr?:",i,"-",i+100);
-#  peak_location[i]=a;
-#}
-#c=rep(1:12,300)
-#d=matrix(c(c[1:3012],1:3012),3012,2)
-#d=data.frame(d)
 SplitGroup.default<-function(foldername,barcord,W3,H,Reg_symbol_name,Reg_peak_name,cluster){
   clustern=length(unique(cluster))
   barcord_cluster=data.frame(barcord=barcord,cluster=cluster)
@@ -38,8 +26,9 @@ SplitGroup.default<-function(foldername,barcord,W3,H,Reg_symbol_name,Reg_peak_na
 
   W3_cluster=W3_norm%*%H_w
   RegFolderName=paste0(foldername,"old_Reg_cluster/")
-  if(!dir.exists(name))dir.create(name,recursive = TRUE )
-  dir.create("",recursive = TRUE )
+  if(!dir.exists(name)){
+    dir.create(name,recursive = TRUE )
+  }
   for (i in 1:clustern) {
     topk=order(W3_cluster[,i])[1:10000]
     outdf=df[topk,]

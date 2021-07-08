@@ -21,7 +21,7 @@ Imports:
   GenomicRanges(>= 1.42.0),
   Gviz(>= 1.34.1),
   GenomicInteractions(>= 1.24.0)
-Remotes::
+Remotes:
   netZoo/netZooR
 LinkingTo:
   Rcpp,

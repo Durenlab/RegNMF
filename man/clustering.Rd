@@ -13,14 +13,14 @@ clustering(H)
 
 \arguments{
   \item{H}{
-result of Reg Nonnegative Matrix Factorization
+result of RegNMF
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-ans
+  \item{ans}{Result of Rtsne}
 }
 \references{
 %% ~put references to the literature/web site here ~

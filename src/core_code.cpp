@@ -23,7 +23,10 @@ Rcpp::List CNmf(Eigen::Map<Eigen::MatrixXd> V, int K, int maxiter, Eigen::Map<Ei
 
     W0=W;
     H0=H;
-    Rprintf("%d\n",iter);
+
+    if(iter%20==0){
+      Rprintf("iteration %d\n",iter);
+    }    
   }
 
   return Rcpp::List::create(Named("W") = wrap(W),
@@ -63,7 +66,7 @@ Rcpp::List CPPNMF_cluster_joint_cross_domain_try(Eigen::Map<Eigen::MatrixXd> Pea
 
 
 
-  //dnorm0=(PeakO-(W10*H0)).squaredNorm()+(lambda1*(X-(W20*H0)).squaredNorm())+(lambda2*(Reg-(W30*H0)).squaredNorm());
+  dnorm0=(PeakO-(W10*H0)).squaredNorm()+(lambda1*(X-(W20*H0)).squaredNorm())+(lambda2*(Reg-(W30*H0)).squaredNorm());
 
   for(int iter=0;iter<maxiter;iter++){
     Rcpp::checkUserInterrupt();
@@ -113,7 +116,7 @@ Rcpp::List CPPNMF_cluster_joint_cross_domain_try(Eigen::Map<Eigen::MatrixXd> Pea
     W30 = W3;
 
     if(iter%20==0){
-    /*
+    
       Tmp1=-(W1*H);
       Tmp1+=PeakO;
       dnorm=Tmp1.squaredNorm();
@@ -123,7 +126,7 @@ Rcpp::List CPPNMF_cluster_joint_cross_domain_try(Eigen::Map<Eigen::MatrixXd> Pea
       Tmp1=-(W3*H);
       Tmp1+=Reg;
       dnorm+=lambda2*Tmp1.squaredNorm();
-      */
+    
       Rprintf("iteration %d\n",iter);
     }
 
@@ -154,7 +157,6 @@ NumericMatrix Fold_RE_TG_MultiAdjustCore(NumericMatrix E2,
     if(E2[i]!=0){E2sqrt[i]=pow(E2[i],2);}
     }
   Function w("which");
-  Rprintf("check2\n");
   for(int i=0;i<O2.rows();i++){
     Rcpp::checkUserInterrupt();
     location1=Symbol_location(_,0)==Peak_location(i,0);
