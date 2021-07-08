@@ -3,7 +3,7 @@
     "path": "C:/DurenLab/oldproject/tmp/RegNMF/man/RgeNMF.Rd",
     "project_path": "man/RgeNMF.Rd",
     "type": "r_doc",
-    "hash": "3048411268",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1625688880368.0,
@@ -16,11 +16,11 @@
         "scrollLine": "46"
     },
     "folds": "",
-    "lastKnownWriteTime": 1625690715,
+    "lastKnownWriteTime": 1625765999,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1625690715,
+    "last_content_update": 1625765999,
     "read_only": false,
     "read_only_alternatives": []
 }
