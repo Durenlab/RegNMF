@@ -1,0 +1,118 @@
+[
+    {
+        "file": "C:/DurenLab/oldproject/tmp/RegNMF/inst/include/util.h",
+        "file_last_write": 1620328166.0,
+        "definitions": []
+    },
+    {
+        "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/core_code.cpp",
+        "file_last_write": 1625765999.0,
+        "definitions": [
+            {
+                "usr": "c:@F@CNmf#$@N@Eigen@S@Map>#$@N@Eigen@S@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#VI0#$@N@Eigen@S@Stride>#VI0#VI0#I#I#S0_#S0_#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "CNmf(Eigen::Map<Eigen::MatrixXd>, int, int, Eigen::Map<Eigen::MatrixXd>, Eigen::Map<Eigen::MatrixXd>, int)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/core_code.cpp",
+                "line": 4,
+                "column": 12
+            },
+            {
+                "usr": "c:@F@CPPNMF_cluster_joint_cross_domain_try#$@N@Eigen@S@Map>#$@N@Eigen@S@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#VI0#$@N@Eigen@S@Stride>#VI0#VI0#S0_#S0_#I#I#d#d#S0_#S0_#S0_#S0_#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S3_#S3_#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "CPPNMF_cluster_joint_cross_domain_try(Eigen::Map<Eigen::MatrixXd>, Eigen::Map<Eigen::MatrixXd>, Eigen::Map<Eigen::MatrixXd>, int, int, double, double, Eigen::Map<Eigen::MatrixXd>, Eigen::Map<Eigen::MatrixXd>, Eigen::Map<Eigen::MatrixXd>, Eigen::Map<Eigen::MatrixXd>, Rcpp::NumericVector, Rcpp::NumericVector, Rcpp::NumericVector, int)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/core_code.cpp",
+                "line": 39,
+                "column": 12
+            },
+            {
+                "usr": "c:@F@Fold_RE_TG_MultiAdjustCore#$@N@Rcpp@S@Matrix>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#S0_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "Fold_RE_TG_MultiAdjustCore(Rcpp::NumericMatrix, Rcpp::NumericMatrix, Rcpp::NumericMatrix, Rcpp::NumericMatrix)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/core_code.cpp",
+                "line": 147,
+                "column": 15
+            }
+        ]
+    },
+    {
+        "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+        "file_last_write": 1625765999.0,
+        "definitions": [
+            {
+                "usr": "c:@F@eps#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "eps(double)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+                "line": 5,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@CppoperationMA_demo#$@N@Eigen@S@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "CppoperationMA_demo(Eigen::MatrixXd, Rcpp::NumericVector, int)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+                "line": 20,
+                "column": 17
+            },
+            {
+                "usr": "c:@F@ifzeroMCPP#$@N@Eigen@S@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "ifzeroMCPP(Eigen::MatrixXd)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+                "line": 62,
+                "column": 17
+            },
+            {
+                "usr": "c:@F@chooesVinMCPP#$@N@Eigen@S@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "chooesVinMCPP(Eigen::MatrixXd, Rcpp::NumericVector, int)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+                "line": 77,
+                "column": 17
+            },
+            {
+                "usr": "c:@F@epsMCpp#$@N@Eigen@S@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "epsMCpp(Eigen::MatrixXd)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+                "line": 100,
+                "column": 17
+            },
+            {
+                "usr": "c:@F@Cvar#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#d#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "Cvar(Rcpp::NumericVector, double, int)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+                "line": 114,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@Cttest#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#S0_#S0_#I#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "Cttest(Rcpp::NumericVector, Rcpp::NumericVector, Rcpp::NumericVector, Rcpp::NumericVector, int, int)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+                "line": 123,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@Cjaccard#$@N@Rcpp@S@Matrix>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "Cjaccard(Rcpp::NumericMatrix)",
+                "file": "C:/DurenLab/oldproject/tmp/RegNMF/src/util.cpp",
+                "line": 131,
+                "column": 15
+            }
+        ]
+    }
+]
