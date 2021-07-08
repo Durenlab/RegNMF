@@ -28,7 +28,7 @@ system(command=cmd)
 
 cmd=paste0("for i in `ls ",barcord_clusterF,"`;
            do i=`echo $i|tr -d \'.bed\'`;",
-           macs2path," callpeak -t ",barcord_clusterF,"$i.bed -g hs -f BED --nomodel --shift -100 --extsize 200 -n ",peak_clusterF,"/$i;"
+           macs2path," callpeak -t ",barcord_clusterF,"$i.bed -g hs -f BED --nomodel --shift -100 --extsize 200 -n ",peak_clusterF,"$i;"
            ,bedtoolspath," intersect -a ",peak_clusterF,"${i}_peaks.narrowPeak -b ",oldRegFolder,"Reg_cluster${i}.bed -wa -wb | cut -f 1,2,3,14,15 > ",RE_clusterF,"${i}.bed
            done")
 
