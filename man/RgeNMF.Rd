@@ -28,9 +28,9 @@
   \item{O}{\code{matrix} or \code{sparseMatrix}. Peak by cell matrix.}
   \item{Symbol}{\code{character}. Vector of genes names}
 
-  \item{PeakName}{\code{character} Vector of peaks names}
-  \item{Symbol_location}{\code{character}. Vector of genes location}
-  \item{Peak_location}{Vector of peaks location}
+  \item{PeakName}{\code{character} Vector of peaks include its location}
+  \item{Symbol_location}{\code{character} Vector of genes location}
+  \item{Peak_location}{\code{character}Vector of peaks location}
   \item{feature_cut_perc}{value of filter}
   \item{corr_cut_k}{value of filter}
   \item{cell_num_smooth}{value of filter}
@@ -43,10 +43,15 @@
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-  \item{w123h$H}{Description of 'comp1'}
-  \item{w123h$W1}{Description of 'comp2'}
-  \item{w123h$W2}{Description of 'comp2'}
-  \item{w123h$W3}{Description of 'comp2'}
+  \item{w123h$H}{H, which is result of RegNMF}
+  \item{w123h$W1}{W1, which is result of RegNMF}
+  \item{w123h$W2}{W2, which is result of RegNMF}
+  \item{w123h$W3}{W3, which is result of RegNMF}
+  \item{W123H$Reg_gene_name}{target genes of each Reg}
+  \item{W123H$Reg_peak_name}{peak_name of each Reg}
+  \item{W123H$Gene_name}{Reg_gene_name}
+  \item{W123H$peak_name}{Reg_gene_name}
+  
 }
 \references{
 %% ~put references to the literature/web site here ~

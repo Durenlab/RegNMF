@@ -129,12 +129,12 @@ double Cttest(NumericVector A, NumericVector B,NumericVector AA,NumericVector BB
 
 // [[Rcpp::export]]
 NumericMatrix Cjaccard(NumericMatrix MM){
-  NumericMatrix a (MM.rows(),MM.cols());
+  NumericMatrix M (MM.rows(),MM.cols());
 
   for(int i=0;i<MM.rows();i++){
     for(int j=0;j<MM.cols();j++){
-      a(i,j)=MM(i,j)/(MM(i,i)+MM(j,j)-MM(i,j));
+      M(i,j)=MM(i,j)/(MM(i,i)+MM(j,j)-MM(i,j));
     }
   }
-  return a;
+  return M;
 }

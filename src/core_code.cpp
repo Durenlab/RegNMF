@@ -63,7 +63,7 @@ Rcpp::List CPPNMF_cluster_joint_cross_domain_try(Eigen::Map<Eigen::MatrixXd> Pea
 
 
 
-  //dnorm0=(PeakO-(W10*H0)).squaredNorm()+(lambda1*(X-(W20*H0)).squaredNorm())+(lambda2*(Reg-(W30*H0)).squaredNorm());
+  dnorm0=(PeakO-(W10*H0)).squaredNorm()+(lambda1*(X-(W20*H0)).squaredNorm())+(lambda2*(Reg-(W30*H0)).squaredNorm());
 
   for(int iter=0;iter<maxiter;iter++){
     Rcpp::checkUserInterrupt();
@@ -113,7 +113,7 @@ Rcpp::List CPPNMF_cluster_joint_cross_domain_try(Eigen::Map<Eigen::MatrixXd> Pea
     W30 = W3;
 
     if(iter%20==0){
-    /*
+    
       Tmp1=-(W1*H);
       Tmp1+=PeakO;
       dnorm=Tmp1.squaredNorm();
@@ -123,7 +123,7 @@ Rcpp::List CPPNMF_cluster_joint_cross_domain_try(Eigen::Map<Eigen::MatrixXd> Pea
       Tmp1=-(W3*H);
       Tmp1+=Reg;
       dnorm+=lambda2*Tmp1.squaredNorm();
-      */
+    
       Rprintf("iteration %d\n",iter);
     }
 

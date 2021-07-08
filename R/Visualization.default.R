@@ -44,7 +44,7 @@ for (i in 1:length(ftmp)) {
   }
   RL[ftmp[i]]=min(start,RL[ftmp[i]])
 }
-#ftmp=RL[ftmp]
+
 
 REcluster=list();
 RETG=list();

@@ -10,7 +10,7 @@ RegNMF.default <- function(E,
                    core=8){
 
   K=100;
-  #####normlize and filter
+  #####Normlize and filter
   E1=normlize_scalling.default(E);
   O1=normlize_scalling.default(O);
   numCut=feature_cut_perc*dim(E1)[2];
@@ -23,6 +23,7 @@ RegNMF.default <- function(E,
   Symbol=Symbol[a>numCut];
   PeakName=PeakName[a1>numCut];
 
+###Making Reg matrix
   R=Fold_RE_TG_multiAdjust.default(E11,O11,Symbol_location,Peak_location)
   R=as(R,"sparseMatrix");
   mk=sort(R[R>0],decreasing = TRUE);
@@ -51,6 +52,7 @@ RegNMF.default <- function(E,
   Reg_info=cbind(c[,1],c[,2]);
   Reg_info=cbind(Reg_info,Reg_dis);
 
+###Making W10,W20,W30,H0, which are used in initialize lambda
   W10=matrix(runif(dim(O12)[1]*K,min = 0,max=1),dim(O12)[1],K);
   W20=matrix(runif(dim(E11)[1]*K,min = 0,max=1),dim(E11)[1],K);
   W30=matrix(runif(dim(Reg_adj)[1]*K,min = 0,max=1),dim(Reg_adj)[1],K);
@@ -62,6 +64,7 @@ RegNMF.default <- function(E,
   wh2$W=t(t(wh2$W)*sqrt(rowSums(wh2$H*wh2$H)))
   wh3$W=t(t(wh3$W)*sqrt(rowSums(wh3$H*wh3$H)))
   lambda=defaultpar_CoupledNMF.default(O12,wh1$W,E11,wh2$W,Reg_adj,wh3$W,2,1);
+
 
   W10=matrix(runif(dim(O12)[1]*K,min = 0,max=1),dim(O12)[1],K);
   W20=matrix(runif(dim(E11)[1]*K,min = 0,max=1),dim(E11)[1],K);
