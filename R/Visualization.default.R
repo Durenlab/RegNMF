@@ -1,8 +1,3 @@
-
-#library(GenomicRanges)
-#library(Gviz)
-#library(GenomicInteractions)
-
 Visualization.default <- function(wholef,peakf,regf,chr,from,to,clusterlist,width=6,height=4){
 
 

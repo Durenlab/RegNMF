@@ -23,7 +23,10 @@ Rcpp::List CNmf(Eigen::Map<Eigen::MatrixXd> V, int K, int maxiter, Eigen::Map<Ei
 
     W0=W;
     H0=H;
-    Rprintf("%d\n",iter);
+
+    if(iter%20==0){
+      Rprintf("iteration %d\n",iter);
+    }    
   }
 
   return Rcpp::List::create(Named("W") = wrap(W),
@@ -154,7 +157,6 @@ NumericMatrix Fold_RE_TG_MultiAdjustCore(NumericMatrix E2,
     if(E2[i]!=0){E2sqrt[i]=pow(E2[i],2);}
     }
   Function w("which");
-  Rprintf("check2\n");
   for(int i=0;i<O2.rows();i++){
     Rcpp::checkUserInterrupt();
     location1=Symbol_location(_,0)==Peak_location(i,0);
