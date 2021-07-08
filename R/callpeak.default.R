@@ -1,6 +1,5 @@
 callpeak.default<-function(outfolder,fragment,barcord_cluster_whole,oldRegFolder,macs2path,bedtoolspath){
 
-#outfolder="Rout/"
 barcord_clusterF=paste0(outfolder,"barcord_cluster/")
 cmd=paste0("mkdir -p ",barcord_clusterF,";rm -f ",barcord_clusterF,"*")
 system(command=cmd)
@@ -14,17 +13,12 @@ cmd=paste0("mkdir -p ",peak_clusterF,";rm -f ",peak_clusterF,"*")
 system(command=cmd)
 
 
-
-#fragment="frag_test.tsv"
-#barcord_cluster_whole="outdata/testout/renamed_barcord.txt"
 cmd=paste0("line=`wc -l ", barcord_cluster_whole ,"|cut -f 1 -d ' ' `
             echo $line
            awk -v l=$line -v folder=",barcord_clusterF," \'{if(NR<=l){col[$1]=$2} else{if(length(col[$4])!=0){print >>folder col[$4]\".bed\"}}}\' ",barcord_cluster_whole," ",fragment)
 system(command=cmd)
 
 
-#macs2path="~/.local/bin/macs2"
-#bedtoolspath="/opt/ohpc/pub/Software/bedtools2-2.29.2/bin/bedtools"
 
 cmd=paste0("for i in `ls ",barcord_clusterF,"`;
            do i=`echo $i|tr -d \'.bed\'`;",
