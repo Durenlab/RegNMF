@@ -1,5 +1,5 @@
 #'
 #'
-#'@name: RegNMFpac
+#'@name: RegNMFPac
 #'@doctype: package
 #'@import: Rcpp RcppEigen Rtsne netZooR lsa Matrix ggplot2
