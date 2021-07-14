@@ -2,7 +2,7 @@ SplitGroup.default<-function(foldername,barcord,W3,H,Reg_symbol_name,Reg_peak_na
   clustern=length(unique(cluster))
   barcord_cluster=data.frame(barcord=barcord,cluster=cluster)
   bfilename=paste0(foldername,"barcord_cluster.bed")
-  write.table(barcord_cluster,filename,col.names = F,row.names = F,quote = FALSE)
+  write.table(barcord_cluster,bfilename,col.names = F,row.names = F,quote = FALSE)
   chr=c()
   peaks=c()
   peake=c()
