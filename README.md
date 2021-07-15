@@ -26,7 +26,7 @@ which bedtools
 
 ### dataset
 
-1. Go to [database](https://support.10xgenomics.com/single-cell-multiome-atac-gex/)choose one of datasets.
+1. Go to [database](https://support.10xgenomics.com/single-cell-multiome-atac-gex/) choose one of datasets.
 2. You may have to input your infomation for downloading the dataset.
 3. Download "Filtered feature barcode matrix MEX (DIR)" and "ATAC Per fragment information file (TSV.GZ)".
 4. Unzip them
@@ -57,11 +57,11 @@ We will use these data in our program.
 
 ## simple usage
 
-You can use demo function for clustering and draw result.  
+You can use demo function for clustering.  
 See the function detail at ./man/demo.Rd
 
 ```R
-demo(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,chr,from,to,core,width,height)
+demo(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,core)
 ```
 
 Ensure there are files named "matrix.mtx", "features.tsv", "barcodes.tsv" in the input folder.

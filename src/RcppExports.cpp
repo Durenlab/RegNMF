@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // CNmf
 Rcpp::List CNmf(Eigen::Map<Eigen::MatrixXd> V, int K, int maxiter, Eigen::Map<Eigen::MatrixXd> W0, Eigen::Map<Eigen::MatrixXd> H0, int core);
-RcppExport SEXP _packageTryV3_CNmf(SEXP VSEXP, SEXP KSEXP, SEXP maxiterSEXP, SEXP W0SEXP, SEXP H0SEXP, SEXP coreSEXP) {
+RcppExport SEXP _RegNMF_CNmf(SEXP VSEXP, SEXP KSEXP, SEXP maxiterSEXP, SEXP W0SEXP, SEXP H0SEXP, SEXP coreSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -24,7 +24,7 @@ END_RCPP
 }
 // CPPNMF_cluster_joint_cross_domain_try
 Rcpp::List CPPNMF_cluster_joint_cross_domain_try(Eigen::Map<Eigen::MatrixXd> PeakO, Eigen::Map<Eigen::MatrixXd> X, Eigen::Map<Eigen::MatrixXd> Reg, int K, int maxiter, double lambda1, double lambda2, Eigen::Map<Eigen::MatrixXd> W10, Eigen::Map<Eigen::MatrixXd> W20, Eigen::Map<Eigen::MatrixXd> W30, Eigen::Map<Eigen::MatrixXd> H0, NumericVector c1, NumericVector c2, NumericVector Reg_w, int core);
-RcppExport SEXP _packageTryV3_CPPNMF_cluster_joint_cross_domain_try(SEXP PeakOSEXP, SEXP XSEXP, SEXP RegSEXP, SEXP KSEXP, SEXP maxiterSEXP, SEXP lambda1SEXP, SEXP lambda2SEXP, SEXP W10SEXP, SEXP W20SEXP, SEXP W30SEXP, SEXP H0SEXP, SEXP c1SEXP, SEXP c2SEXP, SEXP Reg_wSEXP, SEXP coreSEXP) {
+RcppExport SEXP _RegNMF_CPPNMF_cluster_joint_cross_domain_try(SEXP PeakOSEXP, SEXP XSEXP, SEXP RegSEXP, SEXP KSEXP, SEXP maxiterSEXP, SEXP lambda1SEXP, SEXP lambda2SEXP, SEXP W10SEXP, SEXP W20SEXP, SEXP W30SEXP, SEXP H0SEXP, SEXP c1SEXP, SEXP c2SEXP, SEXP Reg_wSEXP, SEXP coreSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -49,7 +49,7 @@ END_RCPP
 }
 // Fold_RE_TG_MultiAdjustCore
 NumericMatrix Fold_RE_TG_MultiAdjustCore(NumericMatrix E2, NumericMatrix O2, NumericMatrix Symbol_location, NumericMatrix Peak_location);
-RcppExport SEXP _packageTryV3_Fold_RE_TG_MultiAdjustCore(SEXP E2SEXP, SEXP O2SEXP, SEXP Symbol_locationSEXP, SEXP Peak_locationSEXP) {
+RcppExport SEXP _RegNMF_Fold_RE_TG_MultiAdjustCore(SEXP E2SEXP, SEXP O2SEXP, SEXP Symbol_locationSEXP, SEXP Peak_locationSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -63,7 +63,7 @@ END_RCPP
 }
 // eps
 double eps(double a);
-RcppExport SEXP _packageTryV3_eps(SEXP aSEXP) {
+RcppExport SEXP _RegNMF_eps(SEXP aSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -74,7 +74,7 @@ END_RCPP
 }
 // Cjaccard
 NumericMatrix Cjaccard(NumericMatrix MM);
-RcppExport SEXP _packageTryV3_Cjaccard(SEXP MMSEXP) {
+RcppExport SEXP _RegNMF_Cjaccard(SEXP MMSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -85,15 +85,15 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_packageTryV3_CNmf", (DL_FUNC) &_packageTryV3_CNmf, 6},
-    {"_packageTryV3_CPPNMF_cluster_joint_cross_domain_try", (DL_FUNC) &_packageTryV3_CPPNMF_cluster_joint_cross_domain_try, 15},
-    {"_packageTryV3_Fold_RE_TG_MultiAdjustCore", (DL_FUNC) &_packageTryV3_Fold_RE_TG_MultiAdjustCore, 4},
-    {"_packageTryV3_eps", (DL_FUNC) &_packageTryV3_eps, 1},
-    {"_packageTryV3_Cjaccard", (DL_FUNC) &_packageTryV3_Cjaccard, 1},
+    {"_RegNMF_CNmf", (DL_FUNC) &_RegNMF_CNmf, 6},
+    {"_RegNMF_CPPNMF_cluster_joint_cross_domain_try", (DL_FUNC) &_RegNMF_CPPNMF_cluster_joint_cross_domain_try, 15},
+    {"_RegNMF_Fold_RE_TG_MultiAdjustCore", (DL_FUNC) &_RegNMF_Fold_RE_TG_MultiAdjustCore, 4},
+    {"_RegNMF_eps", (DL_FUNC) &_RegNMF_eps, 1},
+    {"_RegNMF_Cjaccard", (DL_FUNC) &_RegNMF_Cjaccard, 1},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_packageTryV3(DllInfo *dll) {
+RcppExport void R_init_RegNMF(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

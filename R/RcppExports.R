@@ -2,22 +2,22 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 CNmf <- function(V, K, maxiter, W0, H0, core) {
-    .Call(`_packageTryV3_CNmf`, V, K, maxiter, W0, H0, core)
+    .Call(`_RegNMF_CNmf`, V, K, maxiter, W0, H0, core)
 }
 
 CPPNMF_cluster_joint_cross_domain_try <- function(PeakO, X, Reg, K, maxiter, lambda1, lambda2, W10, W20, W30, H0, c1, c2, Reg_w, core) {
-    .Call(`_packageTryV3_CPPNMF_cluster_joint_cross_domain_try`, PeakO, X, Reg, K, maxiter, lambda1, lambda2, W10, W20, W30, H0, c1, c2, Reg_w, core)
+    .Call(`_RegNMF_CPPNMF_cluster_joint_cross_domain_try`, PeakO, X, Reg, K, maxiter, lambda1, lambda2, W10, W20, W30, H0, c1, c2, Reg_w, core)
 }
 
 Fold_RE_TG_MultiAdjustCore <- function(E2, O2, Symbol_location, Peak_location) {
-    .Call(`_packageTryV3_Fold_RE_TG_MultiAdjustCore`, E2, O2, Symbol_location, Peak_location)
+    .Call(`_RegNMF_Fold_RE_TG_MultiAdjustCore`, E2, O2, Symbol_location, Peak_location)
 }
 
 eps <- function(a) {
-    .Call(`_packageTryV3_eps`, a)
+    .Call(`_RegNMF_eps`, a)
 }
 
 Cjaccard <- function(MM) {
-    .Call(`_packageTryV3_Cjaccard`, MM)
+    .Call(`_RegNMF_Cjaccard`, MM)
 }
 
