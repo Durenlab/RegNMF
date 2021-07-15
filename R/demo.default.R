@@ -1,4 +1,5 @@
-demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,chr,from,to,core,width=6,height=4){
+#demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,chr,from,to,core,width=6,height=4){
+demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,core){
 
 
   element=read_ATAC_GEX.default(in_foldername)
@@ -29,16 +30,16 @@ demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtool
                                macs2path=macs2path,
                                bedtoolspath=bedtoolspath)
 
-  clusterlist=unique(ans$S[1,])
+#  clusterlist=unique(ans$S[1,])
 
-  Visualization.default(wholef=in_foldername,
-                        peakf=visual_need["peak_clusterF"],
-                        regf=visual_need["RE_clusterF"],
-                        chr=chr,
-                        from=from,
-                        to=to,
-                        clusterlist=clusterlist,
-                        width=width,height=height)
+#  Visualization.default(wholef=in_foldername,
+#                        peakf=visual_need["peak_clusterF"],
+#                        regf=visual_need["RE_clusterF"],
+#                        chr=chr,
+#                        from=from,
+##                        to=to,
+#                        clusterlist=clusterlist,
+#                        width=width,height=height)
 
 
   return(ans);
