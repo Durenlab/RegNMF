@@ -57,11 +57,11 @@ We will use these data in our program.
 
 ## simple usage
 
-You can use demo function for clustering and draw result.  
+You can use demo function for clustering.  
 See the function detail at ./man/demo.Rd
 
 ```R
-demo(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,chr,from,to,core,width,height)
+demo(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,core)
 ```
 
 Ensure there are files named "matrix.mtx", "features.tsv", "barcodes.tsv" in the input folder.
