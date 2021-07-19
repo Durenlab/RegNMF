@@ -28,7 +28,9 @@ demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtool
                                barcord_cluster_whole=groupName["barcordFileName"],
                                oldRegFolder=groupName["RegFolderName"],
                                macs2path=macs2path,
-                               bedtoolspath=bedtoolspath)
+                               bedtoolspath=bedtoolspath
+                               cluster=cluster(unique(ans$S[1,]))
+                               clusterN=length(unique(ans$S[1,])))
 
 #  clusterlist=unique(ans$S[1,])
 
