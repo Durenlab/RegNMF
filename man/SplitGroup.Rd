@@ -1,11 +1,11 @@
-\name{clustering}
-\alias{clustering}
+\name{SplitGroup}
+\alias{SplitGroup}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-
+SplitGroup
 }
 \description{
-
+Allot cells(barcords) and regulations(peak - gene) to each clusters
 }
 \usage{
 
