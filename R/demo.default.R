@@ -30,7 +30,7 @@ demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtool
                                macs2path=macs2path,
                                bedtoolspath=bedtoolspath,
                                cluster=unique(ans$S[1,]),
-                               clusterN=length(unique(ans$S[1,])))
+                               clusterL=length(ans$S[1,]))
 
 #  clusterlist=unique(ans$S[1,])
 

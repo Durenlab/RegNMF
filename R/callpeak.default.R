@@ -1,4 +1,4 @@
-callpeak.default<-function(outfolder,fragment,barcord_cluster_whole,oldRegFolder,macs2path,bedtoolspath,cluster,clusterN){
+callpeak.default<-function(outfolder,fragment,barcord_cluster_whole,oldRegFolder,macs2path,bedtoolspath,cluster,clusterL){
 
 barcord_clusterF=paste0(outfolder,"barcord_cluster/")
 
