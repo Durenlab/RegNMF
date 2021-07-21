@@ -43,10 +43,11 @@
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-  \item{w123h$H}{H, which is result of RegNMF}
-  \item{w123h$W1}{W1, which is result of RegNMF}
-  \item{w123h$W2}{W2, which is result of RegNMF}
-  \item{w123h$W3}{W3, which is result of RegNMF}
+  \item{W123h$H}{H, which is result of RegNMF}
+  \item{W123H$W1}{W1, which is result of RegNMF}
+  \item{W123H$W2}{W2, which is result of RegNMF}
+  \item{W123H$W3}{W3, which is result of RegNMF}
+  \item{W123H$Reg_adj}
   \item{W123H$Reg_gene_name}{target genes of each Reg}
   \item{W123H$Reg_peak_name}{peak_name of each Reg}
   \item{W123H$Gene_name}{Reg_gene_name}
