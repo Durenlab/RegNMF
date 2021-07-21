@@ -7,19 +7,19 @@ Maintainer: Cham <fchang@clemson.edu>
 Description: Use "scRegNMF" to cluster cells and call peak for each cluster. Then Use peaks to detect regulation(peak-gene) in each cluster. 
 Depends:
   R (>= 4.0.0),
+  GenomicInteractions(>= 1.24.0)
 Imports: 
+  IRanges,
+  GenomicRanges,
+  rtracklayer,
+  Gviz,
   Rcpp(>= 1.0.6),
   stats,
   utils,
-  Matrix(>= 1.3-2),
-  Rtsne(>= 0.15),
-  lsa(>= 0.73.2),
-  ggplot2(>= 3.3.3),
-  IRanges (>= 1.99.18),
-  GenomicRanges(>= 1.42.0),
-  rtracklayer(>= 1.50.0),
-  Gviz(>= 1.34.1),
-  GenomicInteractions(>= 1.24.0)
+  Matrix,
+  Rtsne,
+  lsa,
+  ggplot2
 LinkingTo:
   Rcpp,
   RcppEigen,
