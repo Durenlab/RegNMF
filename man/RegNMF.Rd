@@ -35,13 +35,8 @@
   \item{corr_cut_k}{value of filter}
   \item{cell_num_smooth}{value of filter}
   \item{core}{Number of core to use}
-
-
-
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
+
 \value{
   \item{W123h$H}{H, which is result of RegNMF}
   \item{W123H$W1}{W1, which is result of RegNMF}
@@ -52,7 +47,6 @@
   \item{W123H$Reg_peak_name}{peak_name of each Reg}
   \item{W123H$Gene_name}{Reg_gene_name}
   \item{W123H$peak_name}{Reg_peak_name}
-  
 }
 \references{
 %% ~put references to the literature/web site here ~
