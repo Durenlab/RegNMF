@@ -27,7 +27,6 @@
   \item{E}{\code{matrix} or \code{sparseMatrix}. Gene by cell matrix.}
   \item{O}{\code{matrix} or \code{sparseMatrix}. Peak by cell matrix.}
   \item{Symbol}{\code{character}. Vector of genes names}
-
   \item{PeakName}{\code{character} Vector of peaks include its location}
   \item{Symbol_location}{\code{character} Vector of genes location}
   \item{Peak_location}{\code{character}Vector of peaks location}
@@ -42,7 +41,7 @@
   \item{W123H$W1}{W1, which is result of RegNMF}
   \item{W123H$W2}{W2, which is result of RegNMF}
   \item{W123H$W3}{W3, which is result of RegNMF}
-  \item{W123H$Reg_adj}
+  \item{W123H$Reg_adj}{Regulations of each cell}
   \item{W123H$Reg_gene_name}{target genes of each Reg}
   \item{W123H$Reg_peak_name}{peak_name of each Reg}
   \item{W123H$Gene_name}{Reg_gene_name}
