@@ -14,8 +14,7 @@ Imports:
   Matrix(>= 1.3-2),
   Rtsne(>= 0.15),
   lsa(>= 0.73.2),
-  ggplot2(>= 3.3.3),
-  remotes(>= 2.3.0)
+  ggplot2(>= 3.3.3)
 Suggests:
   IRanges (>= 1.99.18),
   GenomicRanges(>= 1.42.0),

@@ -1,5 +1,4 @@
 importFrom(Rcpp,sourceCpp,evalCpp)
-importFrom(remotes,install_github)
 import(Matrix)
 import(lsa)
 import(ggplot2)
