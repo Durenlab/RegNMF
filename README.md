@@ -93,7 +93,7 @@ ans=clustering.default(W123H$H)
 
 ans$plot is a figure of tsne.
 
-### Tired step
+### Third step
 
 Use "SplitGroup" to allot cells(barcords) and regulations(peak - gene) to each clusters
 
