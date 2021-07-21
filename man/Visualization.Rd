@@ -38,7 +38,7 @@
 %%  ~~ If necessary, more details than the description above ~~
 }
 \author{
-Cham,\email fchang@clemson.edu
+Cham, fchang@clemson.edu
 }
 \note{
 %%  ~~further notes~~
