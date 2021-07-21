@@ -1,4 +1,4 @@
-callpeak.default<-function(outfolder,fragment,barcord_cluster_whole,oldRegFolder,macs2path,bedtoolspath,cluster,clusterL){
+callpeak.default<-function(outfolder,fragment,barcord_cluster_whole,oldRegFolder,macs2path,bedtoolspath,awkpath,cluster,clusterL){
 
 barcord_clusterF=paste0(outfolder,"barcord_cluster/")
 
@@ -35,7 +35,7 @@ if(!dir.exists(peak_clusterF)){
 #            echo $line
 #           awk -v l=$line -v folder=",barcord_clusterF," \'{if(NR<=l){col[$1]=$2} else{if(length(col[$4])!=0){print >>folder col[$4]\".bed\"}}}\' ",barcord_cluster_whole," ",fragment)
 
-cmd=paste0("awk -v l=",clusterL," -v folder=",barcord_clusterF," \'{if(NR<=l){col[$1]=$2} else{if(length(col[$4])!=0){print >>folder col[$4]\".bed\"}}}\' ",barcord_cluster_whole," ",fragment)
+cmd=paste0(awkpath," -v l=",clusterL," -v folder=",barcord_clusterF," \'{if(NR<=l){col[$1]=$2} else{if(length(col[$4])!=0){print >>folder col[$4]\".bed\"}}}\' ",barcord_cluster_whole," ",fragment)
 
 system(command=cmd)
 
@@ -54,7 +54,7 @@ for(i in cluster){
     cmd=paste0(macs2path," callpeak -t ",barcord_clusterF,i,".bed -g hs -f BED --nomodel --shift -100 --extsize 200 -n ",peak_clusterF,i)
     system(command=cmd)
     genome <- Seqinfo(genome = NA_character_)
-    peakfile=paste0(peak_clusterF,i,"_peaks.narrowPea")
+    peakfile=paste0(peak_clusterF,i,"_peaks.narrowPeak")
     oldREfile=paste0(oldRegFolder,"Reg_cluster",i,".bed")
     REfile=paste0(RE_clusterF,i,".bed")
     gr_a <- import(peakfile, genome = genome)

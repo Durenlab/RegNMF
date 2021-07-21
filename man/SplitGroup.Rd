@@ -12,26 +12,27 @@ Allot cells(barcords) and regulations(peak - gene) to each clusters
 }
 
 \arguments{
-  \item{foldername}{output  }
-  \item{barcord}{}
-  \item{W3}{}
-  \item{H}{}
-  \item{Reg_symbol_name}{}
-  \item{Reg_peak_name}{}
+  \item{foldername}{output  folder}
+  \item{barcord}{barcode of cell}
+  \item{W3}{W3 in W123H}
+  \item{H}{H in W123H}
+  \item{Reg_symbol_name}{Gene_name in W123H}
+  \item{Reg_peak_name}{peak_name in W123H}
   \item{cluster}{}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+About argument barcord and cluster, should be matched.
+For example, if there are barcode A, B, C, belong cluster 1, 2, 1, 
+Then argument `barcode` and `cluster` should be \code{Vector} (A,B,C) and \code{Vector}(1,2,1)
 }
 \value{
-  \item{}{}
+  \item{barcordFileName}{A tsv file contents barcodes with their cluster information}
+  \item{RegFolderName}{A folder contents regulations in each cluster as tsv file, will be filtered by peak of each cluster}
 }
 
-\references{
-%% ~put references to the literature/web site here ~
-}
+
 \author{
-%%  ~~who you are~~
+Cham
 }
 \note{
 %%  ~~further notes~~
@@ -39,19 +40,8 @@ Allot cells(barcords) and regulations(peak - gene) to each clusters
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
-## The function is currently defined as
-function (H)
-{
-    UseMethod("clustering")
-  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):

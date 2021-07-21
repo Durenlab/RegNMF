@@ -77,6 +77,7 @@ RegNMF.default <- function(E,
   W123H[["Reg_peak_name"]]=PeakName[c[,2]];
   W123H[["Gene_name"]]=Symbol;
   W123H[["peak_name"]]=PeakName;
+  W123H[["Reg_net"]]=Reg_adj;
 
 
 

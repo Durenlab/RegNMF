@@ -2,7 +2,7 @@
 \alias{demo}
 \title{program check}
 \usage{
-demo(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,core)
+demo(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,awkpath,core)
 }
 \arguments{
 \item{in_foldername}{folder which cotain barcodes.tsv, features.tsv, matirx.mtx}
