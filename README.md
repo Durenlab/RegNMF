@@ -3,55 +3,54 @@
 ## install package
 
 ```R
-library(withr)  
-setRepositories(ind=1:2)
-with_makevars(c(PKG_CFLAGS = "-std=c99"),devtools::install_github("Durenlab/RegNMF",ref="main"),
-assignment = "+=")
+library(withr)
+setRepositories(ind=1:3)
+devtools::install_github("Durenlab/RegNMF",ref="dev")
 ```
 
 ## Requirements
 
 ### system
 
-* bedtools  
-* macs2
+* macs2(See the detail from [github](https://github.com/macs3-project/MACS))
 
 Check those path, them will be used in our program.
 
 ```bash
-Using "which" to check path
+#Using "which" to check the path
 which macs2
-which bedtools
+
 ```
 
 ### dataset
 
-1. Go to [database](https://support.10xgenomics.com/single-cell-multiome-atac-gex/) choose one of datasets.
+1. Go to [database](https://support.10xgenomics.com/single-cell-multiome-atac-gex/datasets) choose one of datasets.
 2. You may have to input your infomation for downloading the dataset.
 3. Download "Filtered feature barcode matrix MEX (DIR)" and "ATAC Per fragment information file (TSV.GZ)".
 4. Unzip them
 
 ```bash
-    #unzip Filtered feature barcode matrix MEX
-    tar -zxvf XXXfiltered_feature_bc_matrix.tar.gz
+#On linux you can use these commands to unzip
+    #Unzip Filtered feature barcode matrix MEX
+    tar -zxvf [XXX]filtered_feature_bc_matrix.tar.gz
     #There will be a folder named "filtered_feature_bc_matrix/" contain "barcodes.tsv.gz", "matrix.mtx.gz", "features.tsv.gz". Unzip them
     gunzip filtered_feature_bc_matrix/*.gz
 
-    #unzip ATAC Per fragment information file
-    gunzip XXXatac_fragments.tsv.gz
+    #Unzip ATAC Per fragment information file
+    gunzip [XXX]atac_fragments.tsv.gz
 ```
 
 We will use these data in our program.
 
 ## argument
 
-* in_foldername (Charactor) : Path of unziped Filtered feature barcode matrix MEX("filtered_feature_bc_matrix")
-* out_foldername (Charactor) : Path of folder contain result.
-* fragment (Charactor) : Path of unziped ATAC Per fragment information file("XXXatac_fragments.tsv")
-* macs2path (Charactor) : Path of macs2
-* bedtoolspath (Charactor) : Path of bedtools
-* chr (Charactor) : Which chromatin you want to see in the result(ex. "chr16").
-* from (int), to (int) : Which location you want to seein the result.
+* in_foldername (Character) : Path of unziped Filtered feature barcode matrix MEX("filtered_feature_bc_matrix")
+* out_foldername (Character) : Path of folder contain result.
+* fragment (Character) : Path of unziped ATAC Per fragment information file("XXXatac_fragments.tsv")
+* macs2path (Character) : Path of macs2
+* bedtoolspath (Character) : Path of bedtools
+* chr (Character) : Which chromatin you want to see in the result(ex. "chr16").
+* from (int), to (int) : Which region of the chromasome in the result.
 * core (int) : How many core you want to use. You can use `detectCores()` function to check how many core you can use in R.
 * width (int), height (int) : Figure size of result.
 
@@ -88,14 +87,14 @@ W123H=RegNMF(E=element$E,
              Symbol_location=element$Symbol_location, 
              Peak_location=element$Peak_location)
 
-ans=clustering.default(W123H$H)
+ans=clustering(W123H$H)
 ```
 
 ans$plot is a figure of tsne.
 
 ### Third step
 
-Use "SplitGroup" to allot cells(barcords) and regulations(peak - gene) to each clusters
+Use "SplitGroup" to assign cells(barcords) and regulations(peak - gene) to each clusters
 
 ```R
 groupName=SplitGroup(foldername=out_foldername,
@@ -107,7 +106,7 @@ groupName=SplitGroup(foldername=out_foldername,
                      cluster=ans$S[1,])
 ```
 
-In this function we'll make a file shows pair  of barcords and clusters and a folder contains original regulations in each clusters.
+In this function we'll make a file shows pair  of barcords and clusters and a folder contains predicted regulations in each clusters.
 
 ### Fourth step
 
@@ -126,7 +125,7 @@ In this function we'll make three folders, which named "barcord_cluster", "peak_
 
 ### Fifth step
 
-Use "Visualization" to draw peaks and regulations in each clusters. The result will be outputted as "result.pdf"
+Use "Visualization" to draw peaks and regulations in each clusters. The result will be output as "result.pdf"
 
 ```R
 Visualization(wholef=in_foldername,

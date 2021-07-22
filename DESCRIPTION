@@ -14,7 +14,6 @@ Imports:
   rtracklayer,
   Gviz,
   Rcpp(>= 1.0.6),
-  ellipsis(>= 0.3.2),
   stats,
   utils,
   Matrix,

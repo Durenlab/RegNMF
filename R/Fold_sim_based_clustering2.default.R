@@ -20,7 +20,6 @@ Fold_sim_based_clustering2.default <- function(O,k=20){
   KK=colSums(as.matrix(A));
   twom=sum(KK);
   B=A-((as.matrix(KK)%*%t(as.matrix(KK)))/twom);
-  #a=netZooR::alpaca.genlouvain(B);
   a=genlouvain.default(B);
   return(a);
 }
