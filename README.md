@@ -118,7 +118,9 @@ visual_need=callpeak(outfolder=out_foldername,
                      barcord_cluster_whole=groupName["barcordFileName"],
                      oldRegFolder=groupName["RegFolderName"],
                      macs2path=macs2path,
-                     bedtoolspath=bedtoolspath)
+                     awkpath=awkpath,
+                     cluster=unique(ans$S[1,]),
+                     clusterL=length(ans$S[1,]))
 ```
 
 In this function we'll make three folders, which named "barcord_cluster", "peak_cluster"and "RE_cluster" , contain barcords, peaks, regulations infomation by each clusters.

@@ -1,5 +1,5 @@
 #demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,chr,from,to,core,width=6,height=4){
-demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,awkpath,core){
+demo.default <- function(in_foldername,out_foldername,fragment,macs2path,awkpath,core){
 
 
   element=read_ATAC_GEX.default(in_foldername)
@@ -24,7 +24,6 @@ demo.default <- function(in_foldername,out_foldername,fragment,macs2path,bedtool
                                barcord_cluster_whole=groupName["barcordFileName"],
                                oldRegFolder=groupName["RegFolderName"],
                                macs2path=macs2path,
-                               bedtoolspath=bedtoolspath,
                                awkpath=awkpath,
                                cluster=unique(ans$S[1,]),
                                clusterL=length(ans$S[1,]))
