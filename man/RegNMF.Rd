@@ -27,7 +27,6 @@
   \item{E}{\code{matrix} or \code{sparseMatrix}. Gene by cell matrix.}
   \item{O}{\code{matrix} or \code{sparseMatrix}. Peak by cell matrix.}
   \item{Symbol}{\code{character}. Vector of genes names}
-
   \item{PeakName}{\code{character} Vector of peaks include its location}
   \item{Symbol_location}{\code{character} Vector of genes location}
   \item{Peak_location}{\code{character}Vector of peaks location}
@@ -35,46 +34,19 @@
   \item{corr_cut_k}{value of filter}
   \item{cell_num_smooth}{value of filter}
   \item{core}{Number of core to use}
-
-
-
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
+
 \value{
-  \item{w123h$H}{H, which is result of RegNMF}
-  \item{w123h$W1}{W1, which is result of RegNMF}
-  \item{w123h$W2}{W2, which is result of RegNMF}
-  \item{w123h$W3}{W3, which is result of RegNMF}
+  \item{W123h$H}{H, which is result of RegNMF}
+  \item{W123H$W1}{W1, which is result of RegNMF}
+  \item{W123H$W2}{W2, which is result of RegNMF}
+  \item{W123H$W3}{W3, which is result of RegNMF}
+  \item{W123H$Reg_adj}{Regulations of each cell}
   \item{W123H$Reg_gene_name}{target genes of each Reg}
   \item{W123H$Reg_peak_name}{peak_name of each Reg}
   \item{W123H$Gene_name}{Reg_gene_name}
-  \item{W123H$peak_name}{Reg_gene_name}
-  
+  \item{W123H$peak_name}{Reg_peak_name}
 }
 \references{
 %% ~put references to the literature/web site here ~
 }
-\author{
-Fengge Chang,\email fchang@clemson.edu
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
-
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory (show via RShowDoc("KEYWORDS")):
-% \keyword{ ~kwd1 }
-% \keyword{ ~kwd2 }
-% Use only one keyword per line.
-% For non-standard keywords, use \concept instead of \keyword:
-% \concept{ ~cpt1 }
-% \concept{ ~cpt2 }
-% Use only one concept per line.

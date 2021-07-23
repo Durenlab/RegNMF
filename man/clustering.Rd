@@ -13,7 +13,7 @@ clustering(H)
 
 \arguments{
   \item{H}{
-result of RegNMF
+result of RegNMF(W123$H)
 }
 }
 \details{
@@ -26,13 +26,10 @@ result of RegNMF
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+Cham
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
