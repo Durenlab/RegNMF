@@ -1,10 +1,7 @@
 SplitGroup.default<-function(foldername,barcord,W3,H,Reg_symbol_name,Reg_peak_name,cluster){
   if(!dir.exists(foldername)){
     dir.create(foldername,recursive = TRUE )
-  } else if (length(dir(foldername))) {
-    file.remove(paste0(foldername,dir(foldername)))
   }
-
   clustern=length(unique(cluster))
   barcord_cluster=data.frame(barcord=barcord,cluster=cluster)
   bfilename=paste0(foldername,"barcord_cluster.bed")
@@ -34,7 +31,10 @@ SplitGroup.default<-function(foldername,barcord,W3,H,Reg_symbol_name,Reg_peak_na
   RegFolderName=paste0(foldername,"old_Reg_cluster/")
   if(!dir.exists(RegFolderName)){
     dir.create(RegFolderName,recursive = TRUE )
+  } else if (length(dir(RegFolderName))) {
+    file.remove(paste0(RegFolderName,dir(RegFolderName)))
   }
+
   for (i in 1:clustern) {
     topk=order(W3_cluster[,i])[1:10000]
     outdf=df[topk,]
