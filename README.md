@@ -5,7 +5,7 @@
 ```R
 library(withr)
 setRepositories(ind=1:3)
-devtools::install_github("Durenlab/RegNMF",ref="dev")
+devtools::install_github("Durenlab/RegNMF",ref="main")
 ```
 
 ## Requirements
@@ -19,7 +19,7 @@ Check those path, them will be used in our program.
 ```bash
 #Using "which" to check the path
 which macs2
-
+which awk
 ```
 
 ### dataset
@@ -48,7 +48,7 @@ We will use these data in our program.
 * out_foldername (Character) : Path of folder contain result.
 * fragment (Character) : Path of unziped ATAC Per fragment information file("XXXatac_fragments.tsv")
 * macs2path (Character) : Path of macs2
-* bedtoolspath (Character) : Path of bedtools
+* awkpath (Character) : Path of bedtools
 * chr (Character) : Which chromatin you want to see in the result(ex. "chr16").
 * from (int), to (int) : Which region of the chromasome in the result.
 * core (int) : How many core you want to use. You can use `detectCores()` function to check how many core you can use in R.
@@ -60,12 +60,14 @@ You can use demo function for clustering.
 See the function detail at ./man/demo.Rd
 
 ```R
-demo(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,core)
+demo(in_foldername,out_foldername,fragment,macs2path,awktoolspath,core)
 ```
 
 Ensure there are files named "matrix.mtx", "features.tsv", "barcodes.tsv" in the input folder.
 
 ## Using the individual functions  
+
+`callpeak()` in fourth requier macs2, so you may not able to run fourth step on Windows OS.
 
 ### First step
 

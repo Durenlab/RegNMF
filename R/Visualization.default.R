@@ -67,22 +67,24 @@ for (i in clusterlist) {
   interaction_track[[i]] = InteractionTrack(c, name = name, chromosome = chr)
 }
 
+if(!length(interaction_track)){
+  print("There are no interaction in this range")
+}else {
+  ####Make Plot
+  Plist=list()
+  Plist=append(Plist,gtrack)
+  for (i in clusterlist) {
+    if(class(interaction_track[[i]])=="NULL") {next};
+    Plist=append(Plist,interaction_track[[i]])
+    Plist=append(Plist,atrack[[i]])
+  }
+  Plist=append(Plist,atrackw)
+  Plist=append(Plist,Gene)
 
-
-####Make Plot
-Plist=list()
-Plist=append(Plist,gtrack)
-for (i in clusterlist) {
-  if(class(interaction_track[[i]])=="NULL") {next};
-  Plist=append(Plist,interaction_track[[i]])
-  Plist=append(Plist,atrack[[i]])
+  pdf("./result.pdf",width = width,height = height)
+  plotTracks(Plist,from=from,to=to,plot.outside=FALSE)
+  dev.off()
 }
-Plist=append(Plist,atrackw)
-Plist=append(Plist,Gene)
-
-pdf("./result.pdf",width = width,height = height)
-plotTracks(Plist,from=from,to=to,plot.outside=FALSE)
-dev.off()
 
 
 }

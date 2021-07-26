@@ -60,7 +60,7 @@ for(i in cluster){
     gr_a <- import(peakfile, genome = genome)
     gr_b <- import(oldREfile, genome = genome)
     pairs <- findOverlapPairs(gr_a, gr_b, ignore.strand = TRUE)
-    df=data.frame(start=pairs@first@ranges@start,end=(pairs@first@ranges@start+pairs@first@ranges@width),TG=pairs@second@elementMetadata@listData$name,score=pairs@second@elementMetadata@listData$score)
+    df=data.frame(chr=pairs@filest@seqnames,start=pairs@first@ranges@start,end=(pairs@first@ranges@start+pairs@first@ranges@width),TG=pairs@second@elementMetadata@listData$name,score=pairs@second@elementMetadata@listData$score)
     write.table(df,REfile,sep="\t",col.names = F,row.names = F,quote = FALSE)
 }
 
