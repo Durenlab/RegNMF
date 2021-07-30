@@ -1,4 +1,4 @@
-# RegNMF
+# scREG package for singel cell multiome gene expression and chroamtin accessibility data
 
 ## install package
 
