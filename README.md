@@ -67,7 +67,7 @@ Ensure there are files named "matrix.mtx", "features.tsv", "barcodes.tsv" in the
 
 ## Using the individual functions  
 
-`callpeak()` in fourth requier macs2, so you may not able to run fourth step on Windows OS.
+`callpeak()` in the fourth step requiers MACS2 for peak calling, so you may not able to run the fourth step if you have not installed MACS2.
 
 ### First step
 
@@ -79,7 +79,7 @@ element=read_ATAC_GEX(in_foldername)
 
 ### Second step
 
-Use "RegNMF" and "clustering" for clustering.
+Use "RegNMF" for cross-modalities dimension reduction; use "clustering" for subpopulation identification.
 
 ```R
 W123H=RegNMF(E=element$E, 
@@ -96,7 +96,7 @@ ans$plot is a figure of tsne.
 
 ### Third step
 
-Use "SplitGroup" to assign cells(barcords) and regulations(peak - gene) to each clusters
+Use "SplitGroup" to predict raw subpoplation-specific cis-regulatory networks. These networks could be further refined in the next step.
 
 ```R
 groupName=SplitGroup(foldername=out_foldername,
@@ -112,7 +112,7 @@ In this function we'll make a file shows pair  of barcords and clusters and a fo
 
 ### Fourth step
 
-Use "callpeak" to call peak in each clusters, then intersect peaks and original regulations in each cluster.
+Use "callpeak" to call peak in each clusters and refine the subpopulation-specific cis-regulatory netyworks.
 
 ```R
 visual_need=callpeak(outfolder=out_foldername,
@@ -129,7 +129,7 @@ In this function we'll make three folders, which named "barcord_cluster", "peak_
 
 ### Fifth step
 
-Use "Visualization" to draw peaks and regulations in each clusters. The result will be output as "result.pdf"
+Use "Visualization" to run interactive visualization function that takes the genomics region as input and plots the genes, peaks, and interactions in the given range. It includes the genes, the raw peaks from all cells (before clustering), peaks of each cluster from MACS2, and the predicted (refined) peak-gene association in each cluster . The result will be output as "result.pdf"
 
 ```R
 Visualization(wholef=in_foldername,
