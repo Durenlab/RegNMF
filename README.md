@@ -1,4 +1,6 @@
 # scREG package for singel cell multiome gene expression and chroamtin accessibility data
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5676303.svg)](https://zenodo.org/record/5676303#.YY2FWGDMJaQ)
 
 ## install package
 
