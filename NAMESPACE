@@ -29,3 +29,6 @@ export(defaultpar_CoupledNMF.default)
 export(CPPNMF_cluster_joint_cross_domain_try)
 export(tfidf_trans.default)
 export(CNmf)
+export(CPPNMF_cluster_joint_cross_domain_2term)
+export(RegNMF_2term)
+
