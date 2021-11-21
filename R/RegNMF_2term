@@ -1,4 +1,4 @@
-RegNMF.2term <- function(A,
+RegNMF_2term <- function(A,
                          E,
                          feature_cut_perc=0.01,
                          cell_num_smooth=sqrt(dim(E)[2]),
