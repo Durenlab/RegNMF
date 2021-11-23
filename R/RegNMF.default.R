@@ -14,8 +14,8 @@ RegNMF.default <- function(E,
   E1=normlize_scalling.default(E);
   O1=normlize_scalling.default(O);
   numCut=feature_cut_perc*dim(E1)[2];
-  a=rowSums(as.matrix(E1)>0);
-  a1=rowSums(as.matrix(O1)>0);
+  a=Matrix::rowSums(E1>0);
+  a1=Matrix::rowSums(O1>0);
   E11=E1[a>numCut,];
   O11=O1[a1>numCut,];
   Symbol_location=Symbol_location[a>numCut,];
@@ -31,9 +31,9 @@ RegNMF.default <- function(E,
   mk=mk[1:corr_cut_k];
 
   corr_cut=mk[length(mk)];
-  a=colSums((as.matrix(R)>=corr_cut));
+  a=Matrix::colSums(R>=corr_cut);
   O11=O11[a>0,];
-  a2=rowSums((as.matrix(R)>=corr_cut));
+  a2=Matrix::rowSums(R>=corr_cut);
   E11=E11[a2>0,];
   R=R[a2>0,a>0];
   Symbol_location=Symbol_location[a2>0,];
