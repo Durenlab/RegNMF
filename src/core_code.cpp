@@ -33,68 +33,6 @@ Rcpp::List CNmf(Eigen::Map<Eigen::MatrixXd> V, int K, int maxiter, Eigen::Map<Ei
                             Named("H") = wrap(H));
 }
 
-// [[Rcpp::export]]
-Rcpp::List CPPNMF_cluster_joint_cross_domain_2term(Eigen::Map<Eigen::MatrixXd> adt,
-                                                   Eigen::Map<Eigen::MatrixXd> gex,
-                                                   int K,
-                                                   int maxiter,
-                                                   double lambda,
-                                                   Eigen::Map<Eigen::MatrixXd> W10,
-                                                   Eigen::Map<Eigen::MatrixXd> W20,
-                                                   Eigen::Map<Eigen::MatrixXd> H0,
-                                                   int core){
-
-
-  Eigen::setNbThreads(core);
-  int n = Eigen::nbThreads();
-  Rprintf("Core=%d\n",n);
-  double sqrteps = sqrt(DBL_EPSILON);
-  double dnorm,dnorm0;
-  Eigen::MatrixXd HH, numerO,numerX, W1, W2, H, HT;
-
-
-
-
-
-  dnorm0=(adt-(W10*H0)).squaredNorm()+(lambda*(gex-(W20*H0)).squaredNorm())
-  for(int iter=0;iter<maxiter;iter++){
-    Rcpp::checkUserInterrupt();
-    Eigen::MatrixXd W10T=W10.transpose();
-    Eigen::MatrixXd W20T=W20.transpose();
-    Eigen::MatrixXd H0T=H0.transpose();
-    numerO=(W10T*adt)+(lambda*(W20T*gex));
-
-    H=ifzeroMCPP((H0.array()*(numerO.array()/(((W10T*W10)+(lambda*W20T*W20))*H0+epsMCpp(numerO)).array())).matrix());
-
-    HT=H.transpose();
-    HH=H*HT;
-
-
-    numerO=adt*HT;
-    W1=ifzeroMCPP((W10.array()*(numerO.array()/(W10*HH+epsMCpp(numerO)).array())).matrix());
-
-
-    numerX=gex*HT;
-    W2=ifzeroMCPP((W20.array()*(numerX.array()/(W20*HH+epsMCpp(numerX)).array())).matrix());
-
-
-    W10 = W1;
-    H0 = H;
-    W20 = W2;
-
-    if(iter%20==0){
-  
-      Rprintf("iteration %d\n",iter);
-    }
-
-
-}
-
-return Rcpp::List::create(Named("W1") = wrap(W1),
-                          Named("W2") = wrap(W2),
-                          Named("H") = wrap(H));
-}
-
 
 
 // [[Rcpp::export]]
