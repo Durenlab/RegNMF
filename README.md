@@ -16,7 +16,7 @@ devtools::install_github("Durenlab/RegNMF",ref="main")
 
 * macs2(See the detail from [github](https://github.com/macs3-project/MACS))
 
-Check those path, them will be used in our program.
+Check these path that will be used in our program.
 
 ```bash
 #Using "which" to check the path
