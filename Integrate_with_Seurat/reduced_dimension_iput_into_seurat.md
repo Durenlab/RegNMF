@@ -1,7 +1,7 @@
 # Integrate with Seurat
 
 Here we demonstrate how to use reduced Dimension (H) from RegNMF in Seurat, using dataset of 10K human 
-peripheral blood mononuclear cells (PBMCs) freely available from 10X Genomics. 
+peripheral blood mononuclear cells (PBMCs) freely available from [10X Genomics](https://support.10xgenomics.com/single-cell-multiome-atac-gex/datasets). 
 
 In this tutorial we will do following steps:
 * create a seuart Object contain RNA-seq and ATAC-seq data
