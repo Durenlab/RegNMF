@@ -25,10 +25,12 @@ barcode_use<-read.table("~/barcode_use.txt")
 barcode_rna<-rna@Dimnames[[2]]
 idx<-match(barcode_use$V1,barcode_rna)
 rna<-rna[,idx]
+#rna<-rna[,!idx] #if barcode given are cells to trim out
 #filter atac
 barcode_atac<-atac@Dimnames[[2]]
 idx<-match(barcode_use$V1,barcode_atac)
 atac<-atac[,idx]
+#atac<-atac[,!idx] #if barcode given are cells to trim out
 ```
 ## prepare the inputs from seurat object
 ```r
