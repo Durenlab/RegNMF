@@ -1,11 +1,13 @@
-# RegNMF
+# scREG package for singel cell multiome gene expression and chromatin accessibility data
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5676303.svg)](https://zenodo.org/record/5676303#.YY2FWGDMJaQ)
 
 ## install package
 
 ```R
 library(withr)
 setRepositories(ind=1:3)
-devtools::install_github("Durenlab/RegNMF",ref="dev")
+devtools::install_github("Durenlab/RegNMF",ref="main")
 ```
 
 ## Requirements
@@ -14,12 +16,12 @@ devtools::install_github("Durenlab/RegNMF",ref="dev")
 
 * macs2(See the detail from [github](https://github.com/macs3-project/MACS))
 
-Check those path, them will be used in our program.
+Check these path that will be used in our program.
 
 ```bash
 #Using "which" to check the path
 which macs2
-
+which awk
 ```
 
 ### dataset
@@ -48,7 +50,7 @@ We will use these data in our program.
 * out_foldername (Character) : Path of folder contain result.
 * fragment (Character) : Path of unziped ATAC Per fragment information file("XXXatac_fragments.tsv")
 * macs2path (Character) : Path of macs2
-* bedtoolspath (Character) : Path of bedtools
+* awkpath (Character) : Path of bedtools
 * chr (Character) : Which chromatin you want to see in the result(ex. "chr16").
 * from (int), to (int) : Which region of the chromasome in the result.
 * core (int) : How many core you want to use. You can use `detectCores()` function to check how many core you can use in R.
@@ -60,12 +62,14 @@ You can use demo function for clustering.
 See the function detail at ./man/demo.Rd
 
 ```R
-demo(in_foldername,out_foldername,fragment,macs2path,bedtoolspath,core)
+demo(in_foldername,out_foldername,fragment,macs2path,awktoolspath,core)
 ```
 
 Ensure there are files named "matrix.mtx", "features.tsv", "barcodes.tsv" in the input folder.
 
 ## Using the individual functions  
+
+`callpeak()` in the fourth step requiers MACS2 for peak calling, so you may not able to run the fourth step if you have not installed MACS2.
 
 ### First step
 
@@ -77,7 +81,7 @@ element=read_ATAC_GEX(in_foldername)
 
 ### Second step
 
-Use "RegNMF" and "clustering" for clustering.
+Use "RegNMF" for cross-modalities dimension reduction; use "clustering" for subpopulation identification.
 
 ```R
 W123H=RegNMF(E=element$E, 
@@ -94,7 +98,7 @@ ans$plot is a figure of tsne.
 
 ### Third step
 
-Use "SplitGroup" to assign cells(barcords) and regulations(peak - gene) to each clusters
+Use "SplitGroup" to predict raw subpoplation-specific cis-regulatory networks. These networks could be further refined in the next step.
 
 ```R
 groupName=SplitGroup(foldername=out_foldername,
@@ -110,7 +114,7 @@ In this function we'll make a file shows pair  of barcords and clusters and a fo
 
 ### Fourth step
 
-Use "callpeak" to call peak in each clusters, then intersect peaks and original regulations in each cluster.
+Use "callpeak" to call peak in each clusters and refine the subpopulation-specific cis-regulatory netyworks.
 
 ```R
 visual_need=callpeak(outfolder=out_foldername,
@@ -127,7 +131,7 @@ In this function we'll make three folders, which named "barcord_cluster", "peak_
 
 ### Fifth step
 
-Use "Visualization" to draw peaks and regulations in each clusters. The result will be output as "result.pdf"
+Use "Visualization" to run interactive visualization function that takes the genomics region as input and plots the genes, peaks, and interactions in the given range. It includes the genes, the raw peaks from all cells (before clustering), peaks of each cluster from MACS2, and the predicted (refined) peak-gene association in each cluster . The result will be output as "result.pdf"
 
 ```R
 Visualization(wholef=in_foldername,

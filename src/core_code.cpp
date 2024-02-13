@@ -1,6 +1,14 @@
 #include "../inst/include/util.h"
 
 //[[Rcpp::export]]
+double Cvar2(NumericVector AA, double Mean, int length){
+  double Sum=sum(AA)/(length-1);
+  Sum-=pow(Mean,2.0)*length/(length-1);
+  return Sum;
+}
+
+
+//[[Rcpp::export]]
 Rcpp::List CNmf(Eigen::Map<Eigen::MatrixXd> V, int K, int maxiter, Eigen::Map<Eigen::MatrixXd> W0,Eigen::Map<Eigen::MatrixXd> H0,int core){
   Eigen::setNbThreads(core);
   int n = Eigen::nbThreads();
