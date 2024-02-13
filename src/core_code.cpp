@@ -1,14 +1,6 @@
 #include "../inst/include/util.h"
 
 //[[Rcpp::export]]
-double Cvar2(NumericVector AA, double Mean, int length){
-  double Sum=sum(AA)/(length-1);
-  Sum-=pow(Mean,2.0)*length/(length-1);
-  return Sum;
-}
-
-
-//[[Rcpp::export]]
 Rcpp::List CNmf(Eigen::Map<Eigen::MatrixXd> V, int K, int maxiter, Eigen::Map<Eigen::MatrixXd> W0,Eigen::Map<Eigen::MatrixXd> H0,int core){
   Eigen::setNbThreads(core);
   int n = Eigen::nbThreads();
@@ -40,6 +32,122 @@ Rcpp::List CNmf(Eigen::Map<Eigen::MatrixXd> V, int K, int maxiter, Eigen::Map<Ei
   return Rcpp::List::create(Named("W") = wrap(W),
                             Named("H") = wrap(H));
 }
+
+// [[Rcpp::export]]
+Rcpp::List CPPNMF_cluster_joint_cross_domain_try_without_RE(Eigen::Map<Eigen::MatrixXd> PeakO,
+                                                 Eigen::Map<Eigen::MatrixXd> X,
+                                                 int K,
+                                                 int maxiter,
+                                                 double lambda1,
+                                                 Eigen::Map<Eigen::MatrixXd> W10,
+                                                 Eigen::Map<Eigen::MatrixXd> W20,
+                                                 Eigen::Map<Eigen::MatrixXd> H0,
+                                                 NumericVector c1,
+                                                 NumericVector c2,
+                                                 int core){
+
+
+  Eigen::setNbThreads(core);
+  int n = Eigen::nbThreads();
+  Rprintf("Core=%d\n",n);
+  double tolx=1e-4;
+  double tolfun=1e-6;
+  double sqrteps = sqrt(DBL_EPSILON);
+  double dnorm,dnorm0;
+  Eigen::MatrixXd HH, numerO,numerX, W1, W2, H, Tmp1, Tmp2, HT;
+
+
+
+
+
+  dnorm0=(PeakO-(W10*H0)).squaredNorm()+(lambda1*(X-(W20*H0)).squaredNorm());
+  //    +(lambda2*(Reg-(W30*H0)).squaredNorm());
+
+  for(int iter=0;iter<maxiter;iter++){
+    Rcpp::checkUserInterrupt();
+    Eigen::MatrixXd W10T=W10.transpose();
+    Eigen::MatrixXd W20T=W20.transpose();
+    Eigen::MatrixXd H0T=H0.transpose();
+
+    //numerO=(W10T*PeakO)+(lambda1*(W20T*X)) +(lambda2*(W30T*Reg));
+    Eigen::MatrixXd numerO = (W10T * PeakO) + (lambda1 * W20T * X);
+    Eigen::MatrixXd denom = ((W10T * W10) + (lambda1 * W20T * W20)) * H0;
+    Eigen::MatrixXd H = ifzeroMCPP((H0.array() * (numerO.array() / (denom.array() + epsMCpp(numerO)).array())).matrix());
+    //H=ifzeroMCPP((H0.array()*(numerO.array() / (((W10T*W10) + (lambda1*W20T*W20)) * H0  +epsMCpp(numerO)).array())).matrix());
+
+
+
+    // Update W1, W2 using updated H
+    Eigen::MatrixXd HT = H0.transpose();
+    Eigen::MatrixXd HH = H0 * HT;
+    //    HT=H.transpose();
+    //HH=H*HT;
+
+
+    Eigen::MatrixXd numerO=PeakO*HT;
+    W10 = (W10.array() * (numerO.array() / (W10 * HH + epsMCpp(numerO)).array())).matrix();
+    
+    Eigen::MatrixXd numerX = X * HT;
+    W20 = (W20.array() * (numerX.array() / (W20 * HH + epsMCpp(numerX)).array())).matrix();
+    
+    // W1=ifzeroMCPP((W10.array()*(numerO.array()/(W10*HH+epsMCpp(numerO)).array())).matrix());
+
+
+    //numerX=X*HT;
+
+    //W2=ifzeroMCPP((W20.array()*(numerX.array()/(W20*HH+epsMCpp(numerX)).array())).matrix());
+
+
+    //Tmp1=chooesVinMCPP(W1,c2,0);
+    //Tmp2=chooesVinMCPP(W2,c1,0);
+    //numerR=Tmp1+Tmp2;
+    //numerR=CppoperationMA_demo(numerR,Reg_w,2);
+    //Tmp1=Reg*HT;
+    //numerR+=Tmp1;
+
+    //W3=ifzeroMCPP((W30.array()*(numerR.array()/(W30*HH+W30+epsMCpp(numerR)).array())).matrix());
+
+    if(iter>300){
+      if((dnorm0-dnorm)<=tolfun||(dnorm0-dnorm)<=dnorm0){
+
+        Rprintf("dnorm0-dnorm %f is small", dnorm0-dnorm);
+        break;
+      }
+      else if(iter==maxiter)
+        break;
+    }
+
+    //W10 = W1;
+    //H0 = H;
+    //W20 = W2;
+    //W30 = W3;
+
+    if(iter%20==0){
+    
+      Tmp1=-(W1*H);
+      Tmp1+=PeakO;
+      dnorm=Tmp1.squaredNorm();
+      Tmp1=-(W2*H);
+      Tmp1+=X;
+      dnorm+=lambda1*Tmp1.squaredNorm();
+      //Tmp1=-(W3*H);
+      //Tmp1+=Reg;
+      //dnorm+=lambda2*Tmp1.squaredNorm();
+    
+      Rprintf("iteration %d\n",iter);
+    }
+
+
+}
+
+return Rcpp::List::create(Named("W1") = wrap(W10),
+                          Named("W2") = wrap(W20),
+			  // Named("W3") = wrap(W3),
+                          Named("H") = wrap(H));
+
+
+}
+
 
 
 
@@ -223,4 +331,3 @@ NumericMatrix Fold_RE_TG_MultiAdjustCore(NumericMatrix E2,
   }
   return wrap(P_1);
 }
-
